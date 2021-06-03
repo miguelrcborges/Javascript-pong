@@ -43,8 +43,6 @@ export default class Player {
 
   update(dT) {
 
-    if (!dT) return;
-
     this.position.y += this.speed;
 
     if (this.position.y < 5) {
