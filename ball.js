@@ -13,7 +13,7 @@ export default class Ball {
         };
 
 
-        this.speed = {x: 10, y: 10}
+        this.speed = {x: 30, y: 30}
 
     }
 
@@ -43,7 +43,7 @@ export default class Ball {
             ) ||
 
             (
-                this.position.x >= this.game.playerTwo.position.x &&
+                this.position.x + this.radius >= this.game.playerTwo.position.x &&
                 this.position.y >= this.game.playerTwo.position.y &&
                 this.position.y + this.radius <= this.game.playerTwo.position.y + this.game.playerTwo.height
             )
