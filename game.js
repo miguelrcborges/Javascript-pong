@@ -12,9 +12,9 @@ export default class Game {
     }
 
     start() {
-        this.playerOne = new Player(this.gameWidth, this.gameHeight, 1);
-        this.playerTwo = new Player(this.gameWidth, this.gameHeight, 2);
-        this.ball = new Ball(this.gameWidth, this.gameHeight);
+        this.playerOne = new Player(this,1);
+        this.playerTwo = new Player(this,2);
+        this.ball = new Ball(this);
         new InputHandler(this.playerOne, this.playerTwo);
 
     }

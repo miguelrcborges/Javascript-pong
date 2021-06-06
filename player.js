@@ -1,24 +1,26 @@
 export default class Player {
-  constructor(gameWidth, gameHeight, player) {
+  constructor(game, player) {
+    this.game = game
+
     this.width = 15;
     this.height = 100;
-    this.gameHeight = gameHeight
+
     let startWidth;
 
     if (player === 1) {
       startWidth = 5;
     } else {
-      startWidth = gameWidth - this.width - 5;
+      startWidth = this.game.gameWidth - this.width - 5;
     }
 
     this.position = {
       x: startWidth,
-      y: gameHeight / 2 - this.height / 2
+      y: this.game.gameHeight / 2 - this.height / 2
     };
 
 
     this.speed = 0;
-    this.maxspeed = 5;
+    this.maxspeed = 25;
 
 
   }
@@ -43,13 +45,13 @@ export default class Player {
 
   update(dT) {
 
-    this.position.y += this.speed;
+    this.position.y += this.speed / dT;
 
     if (this.position.y < 5) {
       this.position.y = 5;
 
-    } else if (this.position.y + this.height > this.gameHeight - 5) {
-        this.position.y = this.gameHeight - 5 - this.height;
+    } else if (this.position.y + this.height > this.game.gameHeight - 5) {
+        this.position.y = this.game.gameHeight - 5 - this.height;
     }
   
   }
